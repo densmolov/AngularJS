@@ -48,29 +48,36 @@
                 <blockquote ng-repeat="review in product.reviews">
                     <b>Stars: {{review.stars}}&nbsp;&nbsp;&nbsp;</b>
                     {{review.body}}
-                    <cite>by: {{review.author}}</cite>
+                    <cite>--{{review.author}}</cite>
                 </blockquote>
 
                 <br />
 
                 <!-- Review Form -->
                 <form name="reviewForm">
-                    <h4>Submit a review</h4>
+                    <h4>Your review:</h4>
+                    <blockquote>
+                        <b>Stars: {{review.stars}}&nbsp;&nbsp;&nbsp;</b>
+                        {{review.body}}
+                        <cite>--{{review.author}}</cite>
+                    </blockquote>
+                    
                     <fieldset class="form-group">
-                    <select>
-                        <option>Rate this product</option>
-                        <option value="1">5 stars</option>
-                        <option value="1">4 stars</option>
-                        <option value="1">3 stars</option>
-                        <option value="1">2 stars</option>
-                        <option value="1">1 star</option>
-                    </select>
+                        <select ng-model="review.stars">
+                            <option>Rate this product</option>
+                            <option value="5">5 stars</option>
+                            <option value="4">4 stars</option>
+                            <option value="3">3 stars</option>
+                            <option value="2">2 stars</option>
+                            <option value="1">1 star</option>
+                        </select>
                     </fieldset>
                     <fieldset class="form-group">
-                        <textarea class="form-control" placeholder="Write a short review of the product..."></textarea>
+                        <textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the product...">
+                        </textarea>
                     </fieldset>
                     <fieldset class="form-group">
-                        <input type="email" class="form-control" placeholder="example@mail.su" />
+                        <input ng-model="review.author" type="text" class="form-control" placeholder="example@mail.su" />
                     </fieldset>
                     <fieldset class="form-group">
                         <input type="submit" class="btn btn-primary pull-right" value="Submit" />

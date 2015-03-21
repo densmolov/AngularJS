@@ -28,7 +28,7 @@
                 {
                     stars: 3,
                     body: "At least you should give it a try.",
-                    author: "anonymous@mail.su"
+                    author: "anonymous"
                 },
                 {
                     stars: 5,
@@ -38,7 +38,7 @@
                 {
                     stars: 1,
                     body: "Really awful, sorry.",
-                    author: "TheRagChewer@mail.su"
+                    author: "TheRagChewer"
                 }
             ]
         },
@@ -52,7 +52,7 @@
                 {
                     stars: 3,
                     body: "Never again.",
-                    author: "tyrtyr@mail.su"
+                    author: "tyrtyr"
                 },
                 {
                     stars: 2,
