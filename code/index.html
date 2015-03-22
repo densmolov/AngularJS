@@ -10,85 +10,22 @@
 </head>
 
 <body ng-controller="StoreController as storeCtrl">
-<div id="main_div">
+    <header>
+        <h2 class="text-center">Stones. Stones everywhere!..</h2>
+        <h3 class="text-center">– an Angular store –</h3>
+    </header>
+
+<div id="mainDiv">
 <ul class="list-group">
     <li class="list-group-item" ng-repeat="product in storeCtrl.products">
         <h3>
-            {{product.name}}
-            <em class="pull-right">{{product.price | currency}}</em>
+            <product-title></product-title>
         </h3>
         <img ng-src="{{product.image}}">
 
-        <section ng-controller="PanelController as panelCtrl">
-        <br />
-            <ul class="nav nav-tabs">
-                <li ng-class="{active:panelCtrl.isSelected(1)}">
-                    <a href ng-click="panelCtrl.selectTab(1)">Description</a>
-                </li>
-                <li ng-class="{active:panelCtrl.isSelected(2)}">
-                    <a href ng-click="panelCtrl.selectTab(2)">Specifications</a>
-                </li>
-                <li ng-class="{active:panelCtrl.isSelected(3)}">
-                    <a href ng-click="panelCtrl.selectTab(3)">Reviews</a>
-                </li>
-            </ul>
+        <product-panels></product-panels>
 
-            <div class="panel" ng-show="panelCtrl.isSelected(1)">
-                <h4>Description</h4>
-                <p>{{product.description}}</p>
-            </div>
-
-            <div class="panel" ng-show="panelCtrl.isSelected(2)">
-                <h4>Specifications</h4>
-                <blockquote>None yet</blockquote>
-            </div>
-
-            <div class="panel" ng-show="panelCtrl.isSelected(3)">
-                <h4>Reviews</h4>
-                <blockquote ng-repeat="review in product.reviews">
-                    <b>Stars: {{review.stars}}&nbsp;&nbsp;&nbsp;</b>
-                    {{review.body}}
-                    <cite>--{{review.author}}</cite>
-                </blockquote>
-
-                <br />
-
-                <!-- Review Form -->
-                <form name="reviewForm" ng-controller="ReviewController as reviewCtrl"
-                    ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
-                    <h4>Your review:</h4>
-                    <blockquote>
-                        <b>Stars: {{reviewCtrl.review.stars}}&nbsp;&nbsp;&nbsp;</b>
-                        {{reviewCtrl.review.body}}
-                        <cite>--{{reviewCtrl.review.author}}</cite>
-                    </blockquote>
-                    
-                    <fieldset class="form-group">
-                        <select ng-model="reviewCtrl.review.stars" required>
-                            <option>Rate this product</option>
-                            <option value="5">5 stars</option>
-                            <option value="4">4 stars</option>
-                            <option value="3">3 stars</option>
-                            <option value="2">2 stars</option>
-                            <option value="1">1 star</option>
-                        </select>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." required>
-                        </textarea>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <input ng-model="reviewCtrl.review.author" type="text" class="form-control" placeholder="Your name" required />
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <input type="submit" class="btn btn-primary pull-right" value="Submit" />
-                    </fieldset>
-                </form>
-
-
-                
-            </div>
-        </section>
+        <review-form></review-form>
     </li>
 </ul>
 
