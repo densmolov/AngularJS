@@ -1,0 +1,43 @@
+[
+    {
+        "name": "Arkenstone",
+        "price": 100,
+        "description": "Tra-ta-ta...",
+        "image": "images/Arkenstone.png",
+        "reviews": [
+            {
+                "stars": 3,
+                "body": "At least you should give it a try.",
+                "author": "anonymous"
+            },
+            {
+                "stars": 5,
+                "body": "Awesome!",
+                "author": "joe@mail.su"
+            },
+            {
+                "stars": 1,
+                "body": "Really awful, sorry.",
+                "author": "TheRagChewer"
+            }
+        ]
+    },
+    {
+        "name": "Dragon Eye",
+        "price": 120,
+        "description": "Ogo-go...",
+        "image": "images/dragon_eye.jpg",
+        "reviews": [
+            {
+                "stars": 3,
+                "body": "Never again.",
+                "author": "tyrtyr"
+            },
+            {
+                "stars": 2,
+                "body": "Oh no!..",
+                "author": "ape@mail.su"
+            }
+        ]
+    }
+]
