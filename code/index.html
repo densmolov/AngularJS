@@ -54,16 +54,17 @@
                 <br />
 
                 <!-- Review Form -->
-                <form name="reviewForm">
+                <form name="reviewForm" ng-controller="ReviewController as reviewCtrl"
+                    ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
                     <h4>Your review:</h4>
                     <blockquote>
-                        <b>Stars: {{review.stars}}&nbsp;&nbsp;&nbsp;</b>
-                        {{review.body}}
-                        <cite>--{{review.author}}</cite>
+                        <b>Stars: {{reviewCtrl.review.stars}}&nbsp;&nbsp;&nbsp;</b>
+                        {{reviewCtrl.review.body}}
+                        <cite>--{{reviewCtrl.review.author}}</cite>
                     </blockquote>
                     
                     <fieldset class="form-group">
-                        <select ng-model="review.stars">
+                        <select ng-model="reviewCtrl.review.stars" required>
                             <option>Rate this product</option>
                             <option value="5">5 stars</option>
                             <option value="4">4 stars</option>
@@ -73,11 +74,11 @@
                         </select>
                     </fieldset>
                     <fieldset class="form-group">
-                        <textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the product...">
+                        <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." required>
                         </textarea>
                     </fieldset>
                     <fieldset class="form-group">
-                        <input ng-model="review.author" type="text" class="form-control" placeholder="example@mail.su" />
+                        <input ng-model="reviewCtrl.review.author" type="text" class="form-control" placeholder="Your name" required />
                     </fieldset>
                     <fieldset class="form-group">
                         <input type="submit" class="btn btn-primary pull-right" value="Submit" />
